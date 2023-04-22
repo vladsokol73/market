@@ -12,24 +12,19 @@
     @endif
     @auth()
         @if(auth()->user()->role == "покупатель")
-
-            <div class="card-columns">
-                <section class="mt-16 lg:mg-24">
-                    <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-5 mt-8">
+            <div class="container mt-5">
+                <div class="row">
                         @each('components.product', $products, 'item')
-                    </div>
-                </section>
+                </div>
             </div>
         @endif
     @endauth
 
     @guest()
-        <div class="card-columns">
-            <section class="mt-16 lg:mg-24">
-                <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-5 mt-8">
+        <div class="container mt-5">
+            <div class="row">
                     @each('components.product', $products, 'item')
-                </div>
-            </section>
+            </div>
         </div>
     @endguest
 

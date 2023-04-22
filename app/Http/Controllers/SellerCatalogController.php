@@ -50,6 +50,8 @@ class SellerCatalogController extends Controller
 
     //удаление продукта
     public function removeProduct(Request $request, $id) {
+        $format = str_replace('/storage/', '', Product::query()->findOrFail($id)->image);
+        Storage::delete($format);
         $product = Product::query()->findOrFail($id)->delete();
         return redirect()->route('sellerCatalog');
     }
