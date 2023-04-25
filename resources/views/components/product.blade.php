@@ -12,11 +12,19 @@
 
                     <div class="info-price">
                     <span class="price">{{ $item->price }} <small>₽</small></span>
+                        @auth()
                         <form action="{{ route('basketAdd', ['id' => $item->id]) }}"
                               method="post" class="form-inline">
                             @csrf
                         <button type="submit" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></button>
                         </form>
+                        @elseguest()
+                            <form action="{{ route('login') }}"
+                                  method="post" class="form-inline">
+                                @csrf
+                                <button type="submit" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></button>
+                            </form>
+                        @endauth
                     </div>
                 </div>
                 @auth()
