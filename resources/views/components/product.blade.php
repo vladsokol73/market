@@ -20,7 +20,7 @@
                         </form>
                         @elseguest()
                             <form action="{{ route('login') }}"
-                                  method="post" class="form-inline">
+                                  method="get" class="form-inline">
                                 @csrf
                                 <button type="submit" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></button>
                             </form>
